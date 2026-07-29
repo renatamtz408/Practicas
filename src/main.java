@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class main {
     Scanner sc = new Scanner (System.in);
-    int opc=0;
+    int opc= 0;
     do{
         try{
             System.out.println("------- MENÚ -------");
@@ -29,5 +29,5 @@ public class main {
             System.out.println("Ingrese un dato válido.");
             sc.nextLine();
         }
-    }while (opc=!6);
+    } while (opc!=6);
 }
