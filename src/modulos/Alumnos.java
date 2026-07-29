@@ -3,6 +3,8 @@ package modulos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Alumnos {
     private int id;
@@ -44,6 +46,19 @@ public class Alumnos {
                 this.id=rs.getInt(1);
             }
             return filascambiadas;
+        }
+    }
+
+    public static List<Alumnos> getAll() throws Exception{
+        try( Connection con= Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select * from Alumnos");
+        ResultSet rs= stmt.executeQuery();
+        ){
+            List<Alumnos> listaalumnos= new ArrayList<>();
+            while(rs.next()) {
+                listaalumnos.add(new Alumnos(rs.getInt("id"), rs.getString("matricula"), rs.getString("nombre"), rs.getInt("edad"), rs.getString("sexo"), rs.getString("correo")));
+            }
+            return listaalumnos;
         }
     }
 

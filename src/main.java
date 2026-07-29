@@ -1,5 +1,7 @@
 
 import modulos.Alumnos;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class main {
@@ -41,6 +43,18 @@ public class main {
                         System.out.println("No se ha podido registrar el alumno.");
                     }
                     break;
+                case 2:
+                    System.out.println("---LISTA DE ALUMNOS---");
+                    List<Alumnos> lista= Alumnos.getAll();
+                    for (Alumnos a : lista) {
+                        System.out.println("Id: " + a.getId() +
+                                " Matricula: " + a.getMatricula() +
+                                " Nombre: " + a.getNombre() +
+                                " Edad: " + a.getEdad() +
+                                " Sexo: " + a.getSexo() +
+                                " Correo: " + a.getCorreo());
+                        System.out.println("___________________________");
+                    }
                 case 6:
                     System.out.println("Hasta pronto...");
                     break;
