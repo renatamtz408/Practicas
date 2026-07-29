@@ -17,21 +17,20 @@ public class main {
             System.out.println("6) Salir");
             System.out.println("Seleccione una opción:");
             opc= sc.nextInt();
-            sc.nextLine();
             switch (opc){
                 case 1:
                     System.out.println("---REGISTRO DE ESTUDIANTE---");
                     System.out.println("Ingrese la matricula:");
-                    String matricula= sc.nextLine();
+                    String matricula= sc.next();
                     System.out.println("Ingrese el nombre:");
-                    String nombre = sc.nextLine();
+                    String nombre = sc.next();
                     System.out.println("Ingrese la edad");
                     int edad=sc.nextInt();
                     System.out.println("Ingrese el sexo: (F/M)");
                     sc.nextLine();
-                    String sexo=sc.nextLine();
+                    String sexo=sc.next();
                     System.out.println("Ingrese el correo:");
-                    String correo =sc.nextLine();
+                    String correo =sc.next();
                     Alumnos alumno =new Alumnos(matricula,nombre,edad,sexo,correo);
                     int resultado= alumno.save();
                     if(resultado>0){
@@ -49,8 +48,8 @@ public class main {
                     System.out.println("Ingrese una opciòn del menù.");
             }
         } catch (Exception e) {
-            sc.nextLine();
-            System.out.println("Ingrese un dato válido.");
+            System.out.println("Error real: " + e.getMessage()); // <-- Cambia esto
+            e.printStackTrace();
         }
     } while (opc != 6);
 }

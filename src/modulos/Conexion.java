@@ -16,12 +16,12 @@ public class Conexion {
     private static String psw="1234";
 
     public static String getCadenaConexion(){
-        return String.format("jbdc:sqlserver://%s:%s;" +
+        return String.format("jdbc:sqlserver://%s:%s;" +
                 "databaseName=%s;" +
                 "user=%s;" +
-                "password=%s" +
+                "password=%s;" +
                 "encrypt=true;" +
-                "trustCertificateServer=true;,",
+                "trustServerCertificate=true;",
                 server,port,database,user,psw
         );
     }
@@ -29,8 +29,4 @@ public class Conexion {
     public static Connection getConexion()throws Exception{
         return DriverManager.getConnection(getCadenaConexion());
     }
-
-
-
-
 }
