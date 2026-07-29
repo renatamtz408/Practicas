@@ -1,5 +1,9 @@
 package modulos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class Alumnos {
     private int id;
     private String matricula;
@@ -16,13 +20,31 @@ public class Alumnos {
         this.correo = correo;
     }
 
-    public Alumnos(int id, String matricula, String nombre, int edad, String sexo, String correo) {
+    private Alumnos(int id, String matricula, String nombre, int edad, String sexo, String correo) {
         this.id = id;
         this.matricula = matricula;
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
         this.correo = correo;
+    }
+
+    public int save()throws Exception {
+        try(Connection con=Conexion.getConexion();
+            PreparedStatement stmt= con.prepareStatement("Insert into Alumnos (matricula,nombre,edad,sexo,correo) values (?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
+        ){
+            stmt.setString(1,matricula);
+            stmt.setString(2,nombre);
+            stmt.setInt(3,edad);
+            stmt.setString(4,sexo);
+            stmt.setString(5, correo);
+            int filascambiadas= stmt.executeUpdate();
+            ResultSet rs= stmt.getGeneratedKeys();
+            if (rs.next()){
+                this.id=rs.getInt(1);
+            }
+            return filascambiadas;
+        }
     }
 
     public int getId() {

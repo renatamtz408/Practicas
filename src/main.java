@@ -1,8 +1,9 @@
 
-import java.sql.SQLOutput;
+import modulos.Alumnos;
 import java.util.Scanner;
 
 public class main {
+    public static void main(String[] args) {
     Scanner sc = new Scanner (System.in);
     int opc= 0;
     do{
@@ -16,18 +17,41 @@ public class main {
             System.out.println("6) Salir");
             System.out.println("Seleccione una opción:");
             opc= sc.nextInt();
+            sc.nextLine();
             switch (opc){
                 case 1:
-                    System.out.println("REGISTRO DE ESTUDIANTE:");
+                    System.out.println("---REGISTRO DE ESTUDIANTE---");
                     System.out.println("Ingrese la matricula:");
-                    System.out.println("Ingrese el nombre");
+                    String matricula= sc.nextLine();
+                    System.out.println("Ingrese el nombre:");
+                    String nombre = sc.nextLine();
                     System.out.println("Ingrese la edad");
+                    int edad=sc.nextInt();
                     System.out.println("Ingrese el sexo: (F/M)");
+                    sc.nextLine();
+                    String sexo=sc.nextLine();
                     System.out.println("Ingrese el correo:");
+                    String correo =sc.nextLine();
+                    Alumnos alumno =new Alumnos(matricula,nombre,edad,sexo,correo);
+                    int resultado= alumno.save();
+                    if(resultado>0){
+                        System.out.println("Alumno registrado correctamente.");
+                        System.out.println("ID Asignado: "+alumno.getId());
+                        System.out.println("----------------------");
+                    } else {
+                        System.out.println("No se ha podido registrar el alumno.");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Hasta pronto...");
+                    break;
+                default:
+                    System.out.println("Ingrese una opciòn del menù.");
             }
         } catch (Exception e) {
-            System.out.println("Ingrese un dato válido.");
             sc.nextLine();
+            System.out.println("Ingrese un dato válido.");
         }
-    } while (opc!=6);
+    } while (opc != 6);
+}
 }
