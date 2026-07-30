@@ -58,6 +58,11 @@ public class main {
                     case 3:
                         System.out.println("---LISTA DE VEHICULOS---");
                         List<Vehiculo> lista= Estacionamiento.getAll();
+                        for(Vehiculo v:lista){
+                            System.out.println("id: "+ v.id +"| Placa: "+v.placa+" | Horas Estacionado: "+v.horasestacionado+
+                                    " | Tipo: "+v.tipo+" | Costo $"+v.calcularCostoEstacionamiento());
+                            System.out.println("-------------------------------------------");
+                        }
                     case 5:
                         estacionamiento.imprimirReporte();
                         break;

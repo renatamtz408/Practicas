@@ -1,3 +1,4 @@
+import java.lang.classfile.instruction.StackInstruction;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,9 +29,26 @@ public class Estacionamiento {
             PreparedStatement stmt= con.prepareStatement("select * from Vehiculos");
             ResultSet rs= stmt.executeQuery();
         ){
-            List<Vehiculo> listavehiculos= new ArrayList<>()
+            List<Vehiculo> listavehiculos= new ArrayList<>();
             while (rs.next()){
-                listavehiculos.add(new Vehiculo(rs.getInt("id"),rs.getString("placa"),rs.getInt("horas"),rs.getString("tipo"),rs.getDouble("costo")));
+               int id=rs.getInt("id");
+               String placa=rs.getString("placa");
+               int horas=rs.getInt("horas");
+               String tipo=rs.getString("tipo");
+
+               Vehiculo v=null;
+
+               if(tipo.equals("Auto")){
+                   v = new Auto(id, placa, horas, tipo, new TarifaAuto());
+               } else if (tipo.equalsIgnoreCase("Moto")) {
+                   v = new Moto(id, placa, horas, tipo, new TarifaMoto());
+               } else if (tipo.equalsIgnoreCase("Camion")) {
+                   v = new Camion(id, placa, horas, tipo, new TarifaCamion());
+               }
+
+                if (v != null) {
+                    listavehiculos.add(v);
+                }
             }
             return listavehiculos;
         }
