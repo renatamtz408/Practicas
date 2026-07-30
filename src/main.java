@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class main {
@@ -56,7 +57,7 @@ public class main {
                         break;
                     case 3:
                         System.out.println("---LISTA DE VEHICULOS---");
-                        estacionamiento.get
+                        List<Vehiculo> lista= Estacionamiento.getAll();
                     case 5:
                         estacionamiento.imprimirReporte();
                         break;
