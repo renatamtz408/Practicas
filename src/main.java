@@ -77,7 +77,8 @@ public class main {
                     int filasAfectadas= Alumnos.delete(matriculaEliminar);
                     break;
                 case 5:
-
+                    System.out.println("---CONTADOR POR GENERO---");
+                    Alumnos.contadorxgenero();
                 case 6:
                     System.out.println("Hasta pronto...");
                     break;

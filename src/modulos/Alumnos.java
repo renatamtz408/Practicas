@@ -81,6 +81,19 @@ public class Alumnos {
         }
     }
 
+    public static void contadorxgenero()throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select sexo, count(matricula) as total from Alumnos group by sexo");
+        ResultSet rs= stmt.executeQuery();
+        ){
+            while (rs.next()) {
+                String genero=rs.getString("sexo");
+                int cantidad= rs.getInt("total");
+                System.out.println("Sexo: "+genero+" Cantidad: "+cantidad);
+            }
+        }
+    }
+
     public int getId() {
         return id;
     }
