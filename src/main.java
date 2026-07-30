@@ -1,6 +1,7 @@
 
 import modulos.Alumnos;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class main {
             System.out.println("------- MENÚ -------");
             System.out.println("1) Registrar Estudiante");
             System.out.println("2) Ver lista de Alumnos");
-            System.out.println("3) Modificar dato de Alumno");
+            System.out.println("3) Modificar correo de Alumno");
             System.out.println("4) Eliminar Alumno");
             System.out.println("5) Contador por genero");
             System.out.println("6) Salir");
@@ -55,6 +56,23 @@ public class main {
                                 " Correo: " + a.getCorreo());
                         System.out.println("___________________________");
                     }
+                    break;
+                case 3:
+                    System.out.println("---MODIFICAR CORREO DE ALUMNO---");
+                    System.out.println("Ingrese la matricula del alumno: ");
+                    String matriculamod=sc.next();
+                    System.out.println("Ingrese el nuevo correo: ");
+                    String nuevocorreo= sc.next();
+                    int filasCambiadas= Alumnos.update(nuevocorreo,matriculamod);
+                    if(filasCambiadas>0){
+                        System.out.println("Cambio registrado con éxito.");
+                    }else{
+                        System.out.println("No se encontro la matricula.");
+                    }
+                    break;
+                case 4:
+                    System.out.println("---ELIMINAR ALUMNO---");
+
                 case 6:
                     System.out.println("Hasta pronto...");
                     break;

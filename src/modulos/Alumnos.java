@@ -62,6 +62,16 @@ public class Alumnos {
         }
     }
 
+    public static int update(String correo, String matricula) throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("update Alumnos set correo=? where matricula=?");
+        ){
+            stmt.setString(1,correo);
+            stmt.setString(2,matricula);
+            return stmt.executeUpdate();
+        }
+    }
+
     public int getId() {
         return id;
     }
