@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Estacionamiento {
     private ArrayList<Vehiculo> listaVehiculos;
@@ -18,6 +20,19 @@ public class Estacionamiento {
             stmt.setString(3,v.tipo);
             stmt.setDouble(4,v.calcularCostoEstacionamiento());
             return stmt.executeUpdate();
+        }
+    }
+
+    public static List<Vehiculo> getAll() throws Exception{
+        try(Connection con=Conexion.getConexion();
+            PreparedStatement stmt= con.prepareStatement("select * from Vehiculos");
+            ResultSet rs= stmt.executeQuery();
+        ){
+            List<Vehiculo> listavehiculos= new ArrayList<>()
+            while (rs.next()){
+                listavehiculos.add(new Vehiculo(rs.getInt("id"),rs.getString("placa"),rs.getInt("horas"),rs.getString("tipo"),rs.getDouble("costo")));
+            }
+            return listavehiculos;
         }
     }
 

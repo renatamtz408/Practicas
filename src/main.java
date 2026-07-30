@@ -11,8 +11,9 @@ public class main {
                 System.out.println("MENU");
                 System.out.println("1. Consultar Tarifas");
                 System.out.println("2. Registrar Vehiculo");
-                System.out.println("3. Reporte del Dia");
-                System.out.println("4. Salir");
+                System.out.println("3. Lista de Vehiculos");
+                System.out.println("5. Reporte del Dia");
+                System.out.println("6. Salir");
                 System.out.print("Seleccione una opcion: ");
                 opc = teclado.nextInt();
                 teclado.nextLine();
@@ -53,8 +54,10 @@ public class main {
                             System.out.println("Opcion invalida.");
                         }
                         break;
-
                     case 3:
+                        System.out.println("---LISTA DE VEHICULOS---");
+                        estacionamiento.get
+                    case 5:
                         estacionamiento.imprimirReporte();
                         break;
                     default:
