@@ -34,16 +34,20 @@ public class main {
                         System.out.println("2. Moto");
                         System.out.println("3. Camion");
                         int tipo = teclado.nextInt();
+                        String tipos= "";
                         if (tipo == 1) {
-                            Auto auto = new Auto (placa, horasestacionado, new TarifaAuto());
-                            estacionamiento.registrarVehiculo(auto);
+                            tipos="Auto";
+                            Auto auto = new Auto (placa, horasestacionado, tipos,new TarifaAuto());
+                            estacionamiento.save(auto);
                         } else if (tipo == 2) {
-                            Moto moto = new Moto(placa, horasestacionado,new TarifaMoto());
-                            estacionamiento.registrarVehiculo(moto);
+                            tipos="Moto";
+                            Moto moto = new Moto(placa, horasestacionado,tipos,new TarifaMoto());
+                            estacionamiento.save(moto);
 
                         } else if (tipo == 3) {
-                            Camion camion = new Camion(placa, horasestacionado, new TarifaCamion());
-                            estacionamiento.registrarVehiculo(camion);
+                            tipos="Camion";
+                            Camion camion = new Camion(placa, horasestacionado,tipos, new TarifaCamion());
+                            estacionamiento.save(camion);
 
                         } else {
                             System.out.println("Opcion invalida.");
@@ -53,9 +57,13 @@ public class main {
                     case 3:
                         estacionamiento.imprimirReporte();
                         break;
+                    default:
+                        System.out.println("bye...");
                 }
             } catch (Exception e) {
                 System.out.println("Ingrese una opccion valida");
+                e.printStackTrace();
+                e.getMessage();
                 teclado.nextLine();
             }
         } while (opc != 4);

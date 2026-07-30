@@ -1,16 +1,35 @@
 public class Vehiculo {
+    protected int id;
     protected String placa;
     public int horasestacionado;
+    public String tipo;
     protected Tarifa tarifa;
 
     public double calcularCostoEstacionamiento (){
         return tarifa.Calcular(horasestacionado);
     }
 
-    public Vehiculo(String placa, int horasestacionado, Tarifa tarifa) {
+    public Vehiculo(String placa, int horasestacionado, String tipo, Tarifa tarifa) {
         this.placa = placa;
         this.horasestacionado = horasestacionado;
+        this.tipo = tipo;
         this.tarifa = tarifa;
+    }
+
+    public Vehiculo(int id, String placa, int horasestacionado, String tipo, Tarifa tarifa) {
+        this.id = id;
+        this.placa = placa;
+        this.horasestacionado = horasestacionado;
+        this.tipo = tipo;
+        this.tarifa = tarifa;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getPlaca() {

@@ -1,3 +1,5 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 public class Estacionamiento {
@@ -7,9 +9,16 @@ public class Estacionamiento {
         this.listaVehiculos = new ArrayList<>();
     }
 
-    public void registrarVehiculo(Vehiculo v) {
-        listaVehiculos.add(v);
-        System.out.println("El vehiculo ha sido registrado.");
+    public int save(Vehiculo v) throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt = con.prepareStatement("insert into Vehiculos (placa,horas,tipo,costo) values (?,?,?,?)");
+        ){
+            stmt.setString(1, v.placa);
+            stmt.setInt(2,v.horasestacionado);
+            stmt.setString(3,v.tipo);
+            stmt.setDouble(4,v.calcularCostoEstacionamiento());
+            return stmt.executeUpdate();
+        }
     }
 
     public void imprimirReporte() {
