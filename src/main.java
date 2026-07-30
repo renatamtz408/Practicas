@@ -72,6 +72,11 @@ public class main {
                     break;
                 case 4:
                     System.out.println("---ELIMINAR ALUMNO---");
+                    System.out.println("Ingrese la matricula del alumno: ");
+                    String matriculaEliminar=sc.next();
+                    int filasAfectadas= Alumnos.delete(matriculaEliminar);
+                    break;
+                case 5:
 
                 case 6:
                     System.out.println("Hasta pronto...");

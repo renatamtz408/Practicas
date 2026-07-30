@@ -72,6 +72,15 @@ public class Alumnos {
         }
     }
 
+    public static int delete(String matricula)throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("delete from Alumnos where matricula=?")
+        ){
+            stmt.setString(1,matricula);
+            return stmt.executeUpdate();
+        }
+    }
+
     public int getId() {
         return id;
     }
