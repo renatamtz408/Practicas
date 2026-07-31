@@ -1,3 +1,5 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 public class Paqueteria {
@@ -9,5 +11,14 @@ public class Paqueteria {
 
     public void registrarpaquetes(paqueteEnvio p){
         listapaquetes.add(p);
+    }
+
+    public int save()throws Exception{
+        try(Connection con=Conexion.getConexion();
+            PreparedStatement stmt= con.prepareStatement("insert into Paquete (destinatario,peso,estrategia,costo) values (?,?,?,?)");
+        ){
+            stmt.setString(1,this.nombredestinatario);
+            stmt.setDouble(2,this.);
+        }
     }
 }

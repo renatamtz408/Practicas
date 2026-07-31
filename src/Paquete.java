@@ -4,23 +4,42 @@ public abstract class Paquete {
     private int id;
     private String nombredestinatario;
     private double pesokg;
+    private String tipo;
     public Envio estrategiaenvio;
 
-    public Paquete(int id,String nombredestinatario, double pesokg, Envio estrategiaenvio) {
-        this.id=id;
+    public Paquete(int id, String nombredestinatario, double pesokg, String tipo, Envio estrategiaenvio) {
+        this.id = id;
         this.nombredestinatario = nombredestinatario;
         this.pesokg = pesokg;
+        this.tipo = tipo;
         this.estrategiaenvio = estrategiaenvio;
     }
 
-    public Paquete(String nombredestinatario, double pesokg, Envio estrategiaenvio) {
+    public Paquete(String nombredestinatario, double pesokg, String tipo, Envio estrategiaenvio) {
         this.nombredestinatario = nombredestinatario;
         this.pesokg = pesokg;
+        this.tipo = tipo;
         this.estrategiaenvio = estrategiaenvio;
     }
 
-    public void obtenerCosto(){
-        estrategiaenvio.CalcularCosto(pesokg);
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double obtenerCosto(){
+        return estrategiaenvio.CalcularCosto(pesokg);
     }
 
     public String getNombredestinatario() {

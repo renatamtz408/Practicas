@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 public class Conexion {
     private static String server="localhost";
     private static String port="1433";
-    private static String db="Paqueteria";
+    private static String db="Paquetes";
     private static String user="Desarrolllador";
     private static String psw="1234";
 
