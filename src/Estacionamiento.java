@@ -69,9 +69,9 @@ public class Estacionamiento {
         ResultSet rs= stmt.executeQuery();
         ){
             while(rs.next()){
-                int id=rs.getInt(1,"id");
-                String tipo=rs.getString(2,"tipo");
-                System.out.println("Tipo de Vehiculo: " +tipo+" Cantidad: ");
+                String tipo=rs.getString(1,"tipo");
+                int cantidad =rs.getInt(2,"total");
+                System.out.println("Tipo de Vehiculo: " +tipo+" Cantidad: "+cantidad);
             }
 
         }
