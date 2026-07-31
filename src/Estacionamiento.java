@@ -63,6 +63,14 @@ public class Estacionamiento {
         }
     }
 
+    public static void contador()throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select tipo count(id) from Vehiculos group by tipo");
+        ){
+
+        }
+    }
+
     public void imprimirReporte() {
         double dineroTotal = 0;
         System.out.println("REPORTE");
