@@ -65,8 +65,14 @@ public class Estacionamiento {
 
     public static void contador()throws Exception{
         try(Connection con=Conexion.getConexion();
-        PreparedStatement stmt= con.prepareStatement("select tipo count(id) from Vehiculos group by tipo");
+        PreparedStatement stmt= con.prepareStatement("select tipo count(id)as total from Vehiculos group by tipo");
+        ResultSet rs= stmt.executeQuery();
         ){
+            while(rs.next()){
+                int id=rs.getInt(1,"id");
+                String tipo=rs.getString(2,"tipo");
+                System.out.println("Tipo de Vehiculo: " +tipo+" Cantidad: ");
+            }
 
         }
     }
