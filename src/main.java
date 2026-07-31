@@ -52,6 +52,7 @@ public class main {
                             String type="Envío Estandar";
                             paqueteEnvio p = new paqueteEnvio(nombre,pesokg,type,new EnvioEstandar());
                             paqueteria.registrarpaquetes(p);
+                            paqueteria.save(p);
 
                         }
 
