@@ -12,6 +12,10 @@ public class Estacionamiento {
         this.listaVehiculos = new ArrayList<>();
     }
 
+    public void registro(Vehiculo v) {
+        listaVehiculos.add(v);
+    }
+
     public int save(Vehiculo v) throws Exception{
         try(Connection con=Conexion.getConexion();
         PreparedStatement stmt = con.prepareStatement("insert into Vehiculos (placa,horas,tipo,costo) values (?,?,?,?)");
@@ -65,13 +69,15 @@ public class Estacionamiento {
 
     public static void contador()throws Exception{
         try(Connection con=Conexion.getConexion();
-        PreparedStatement stmt= con.prepareStatement("select tipo count(id)as total from Vehiculos group by tipo");
+        PreparedStatement stmt= con.prepareStatement("select tipo, count(id) as total from Vehiculos group by tipo");
         ResultSet rs= stmt.executeQuery();
         ){
             while(rs.next()){
-                String tipo=rs.getString(1,"tipo");
-                int cantidad =rs.getInt(2,"total");
-                System.out.println("Tipo de Vehiculo: " +tipo+" Cantidad: "+cantidad);
+                String tipo=rs.getString("tipo");
+                int cantidad =rs.getInt("total");
+                System.out.println("------------------------");
+                System.out.println("Tipo de Vehiculo: " +tipo+" | Cantidad: "+cantidad);
+                System.out.println("------------------------");
             }
 
         }

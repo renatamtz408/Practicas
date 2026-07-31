@@ -44,15 +44,17 @@ public class main {
                             tipos="Auto";
                             Auto auto = new Auto (placa, horasestacionado, tipos,new TarifaAuto());
                             estacionamiento.save(auto);
+                            estacionamiento.registro(auto);
                         } else if (tipo == 2) {
                             tipos="Moto";
                             Moto moto = new Moto(placa, horasestacionado,tipos,new TarifaMoto());
                             estacionamiento.save(moto);
-
+                            estacionamiento.registro(moto);
                         } else if (tipo == 3) {
                             tipos="Camion";
                             Camion camion = new Camion(placa, horasestacionado,tipos, new TarifaCamion());
                             estacionamiento.save(camion);
+                            estacionamiento.registro(camion);
 
                         } else {
                             System.out.println("Opcion invalida.");
@@ -79,6 +81,7 @@ public class main {
                         }
                         break;
                     case 5:
+                        Estacionamiento.contador();
                         break;
                     case 6:
                         estacionamiento.imprimirReporte();
