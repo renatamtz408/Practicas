@@ -14,8 +14,9 @@ public class main {
                 System.out.println("2. Registrar Vehiculo");
                 System.out.println("3. Lista de Vehiculos");
                 System.out.println("4. Eliminar Vehiculo");
-                System.out.println("5. Reporte del Dia");
-                System.out.println("6. Salir");
+                System.out.println("5. Contador por tipos");
+                System.out.println("6. Reporte del Dia");
+                System.out.println("7. Salir");
                 System.out.print("Seleccione una opcion: ");
                 opc = teclado.nextInt();
                 teclado.nextLine();
@@ -25,6 +26,7 @@ public class main {
                         System.out.println("Auto: $2 USD por hora.");
                         System.out.println("Moto: $1 USD por hora.");
                         System.out.println("Camion: $4 USD por hora + $5 USD por uso de suelo pesado.");
+                        System.out.println("----------------------------------");
                         break;
                     case 2:
                         System.out.println("Imgrese la placa del vehiculo: ");
@@ -69,13 +71,23 @@ public class main {
                         System.out.println("---ELIMINAR VEHICULO---");
                         System.out.println("Ingrese el id del vehiculo que desea eliminar: ");
                         int id= teclado.nextInt();
-                        Estacionamiento.deleteid(id);
+                        int cambios=Estacionamiento.deleteid(id);
+                        if(cambios>0) {
+                            System.out.println("Vehiculo Eliminado.");
+                        }else{
+                            System.out.println("No se encontro el vehiculo.");
+                        }
                         break;
                     case 5:
+                        break;
+                    case 6:
                         estacionamiento.imprimirReporte();
                         break;
-                    default:
+                    case 7:
                         System.out.println("bye...");
+                        break;
+                    default:
+                        System.out.println("Ingrese una opcción del menú.");
                 }
             } catch (Exception e) {
                 System.out.println("Ingrese una opccion valida");
@@ -83,6 +95,6 @@ public class main {
                 e.getMessage();
                 teclado.nextLine();
             }
-        } while (opc != 4);
+        } while (opc != 7);
     }
 }
