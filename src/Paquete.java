@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 
 public abstract class Paquete {
+    private int id;
     private String nombredestinatario;
     private double pesokg;
     public Envio estrategiaenvio;
+
+    public Paquete(int id,String nombredestinatario, double pesokg, Envio estrategiaenvio) {
+        this.id=id;
+        this.nombredestinatario = nombredestinatario;
+        this.pesokg = pesokg;
+        this.estrategiaenvio = estrategiaenvio;
+    }
 
     public Paquete(String nombredestinatario, double pesokg, Envio estrategiaenvio) {
         this.nombredestinatario = nombredestinatario;

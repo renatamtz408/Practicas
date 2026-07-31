@@ -38,6 +38,20 @@ public class main {
                         System.out.println(" ");
                         break;
                     case 2:
+                        System.out.println("---REGISTRO DE PAQUETES---");
+                        System.out.println("Ingrese el nombre de destinatario:");
+                        String nombre=sc.next();
+                        System.out.println("Ingrese el peso en Kg del paquete:");
+                        Double pesokg=sc.nextDouble();
+                        System.out.println("Seleccione el tipo de envio:");
+                        System.out.println("1) Estandar");
+                        System.out.println("2) Express");
+                        System.out.println("3) Internacional");
+                        int tipo = sc.nextInt();
+                        if(tipo==1){
+                            paqueteEnvio paquete= new paqueteEnvio(nombre,pesokg,tipo)
+                        }
+
 
                         break;
                     case 3:
