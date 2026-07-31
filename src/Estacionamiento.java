@@ -54,6 +54,15 @@ public class Estacionamiento {
         }
     }
 
+    public static int deleteid(int id)throws Exception{
+        try(Connection con= Conexion.getConexion();
+            PreparedStatement stmt= con.prepareStatement("delete from Vehiculos where id= ?");
+        ){
+            stmt.setInt(1,id);
+            return stmt.executeUpdate();
+        }
+    }
+
     public void imprimirReporte() {
         double dineroTotal = 0;
         System.out.println("REPORTE");

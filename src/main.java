@@ -13,6 +13,7 @@ public class main {
                 System.out.println("1. Consultar Tarifas");
                 System.out.println("2. Registrar Vehiculo");
                 System.out.println("3. Lista de Vehiculos");
+                System.out.println("4. Eliminar Vehiculo");
                 System.out.println("5. Reporte del Dia");
                 System.out.println("6. Salir");
                 System.out.print("Seleccione una opcion: ");
@@ -63,6 +64,13 @@ public class main {
                                     " | Tipo: "+v.tipo+" | Costo $"+v.calcularCostoEstacionamiento());
                             System.out.println("-------------------------------------------");
                         }
+                        break;
+                    case 4:
+                        System.out.println("---ELIMINAR VEHICULO---");
+                        System.out.println("Ingrese el id del vehiculo que desea eliminar: ");
+                        int id= teclado.nextInt();
+                        Estacionamiento.deleteid(id);
+                        break;
                     case 5:
                         estacionamiento.imprimirReporte();
                         break;
