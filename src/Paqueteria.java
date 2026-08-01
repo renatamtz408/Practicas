@@ -25,4 +25,22 @@ public class Paqueteria {
             return stmt.executeUpdate();
         }
     }
+
+    public ArrayList<paqueteEnvio> getAll()throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select * from Paquetes");
+        ){
+            ArrayList<paqueteEnvio> lista=new ArrayList<>();
+            ResultSet rs= stmt.getGeneratedKeys();
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String nombre=rs.getString("destinatario");
+                double peso=rs.getDouble("peso");
+                String estrategia=rs.getString("estrategia");
+                double costo=rs.getDouble("costo");
+
+                if(estrategia="Envío Estandar")
+            }
+        }
+    }
 }

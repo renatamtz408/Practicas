@@ -75,6 +75,7 @@ public class main {
                         }
                         break;
                     case 3:
+                        System.out.println("---LISTA DE PAQUETES---");
                         break;
                     case 4:
                         break;
