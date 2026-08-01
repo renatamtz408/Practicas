@@ -39,8 +39,25 @@ public class Paqueteria {
                 String estrategia=rs.getString("estrategia");
                 double costo=rs.getDouble("costo");
 
-                if(estrategia="Envío Estandar")
+                paqueteEnvio p=null;
+                String tip="";
+
+                if(estrategia.equals("Envío Estandar")){
+                    tip="Estandar";
+                    p= new paqueteEnvio(id,nombre,peso,tip, new EnvioEstandar());
+                }else if(estrategia.equals("Envío Express")){
+                    tip="Express";
+                    p=new paqueteEnvio(id,nombre,peso,tip, new EnvioExpress());
+                }else if(estrategia.equals("Envío Internacional")){
+                    tip="Intenacional";
+                    p=new paqueteEnvio(id,nombre,peso,tip,new EnvioInternacional());
+                }
+
+                if(p!=null){
+                    lista.add(p);
+                }
             }
+            return lista;
         }
     }
 }
