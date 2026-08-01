@@ -5,11 +5,11 @@ public class Conexion {
     private static String server="localhost";
     private static String port="1433";
     private static String db="Paquetes";
-    private static String user="Desarrolllador";
+    private static String user="Desarrollador";
     private static String psw="1234";
 
     public static String getCadenaConexion(){
-        return String.format("jdbc:sqlserver://%s.%s;" +
+        return String.format("jdbc:sqlserver://%s:%s;" +
                 "databaseName=%s;" +
                 "user=%s;" +
                 "password=%s;" +

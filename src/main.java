@@ -18,6 +18,7 @@ public class main {
                 System.out.println("8) Salir");
                 System.out.println("SELECCIONE UNA OPCIÓN: ");
                 opc= sc.nextInt();
+                sc.nextLine();
                 switch (opc){
                     case 1:
                         System.out.println("TIPOS DE ENVIO");
@@ -48,15 +49,30 @@ public class main {
                         System.out.println("2) Express");
                         System.out.println("3) Internacional");
                         int tipo = sc.nextInt();
+                        int cambios=0;
                         if(tipo==1){
                             String type="Envío Estandar";
                             paqueteEnvio p = new paqueteEnvio(nombre,pesokg,type,new EnvioEstandar());
                             paqueteria.registrarpaquetes(p);
-                            paqueteria.save(p);
-
+                            cambios= paqueteria.save(p);
+                        } else if (tipo==2) {
+                            String type="Envío Express";
+                            paqueteEnvio p = new paqueteEnvio(nombre,pesokg,type,new EnvioExpress());
+                            paqueteria.registrarpaquetes(p);
+                            cambios=paqueteria.save(p);
+                        } else if (tipo==3) {
+                            String type="Envío Internacional";
+                            paqueteEnvio p = new paqueteEnvio(nombre,pesokg,type,new EnvioInternacional());
+                            paqueteria.registrarpaquetes(p);
+                            cambios=paqueteria.save(p);
+                        }else{
+                            System.out.println("Seleccione 1,2 o 3.");
                         }
-
-
+                        if(cambios>0){
+                            System.out.println("Paquete registrado.");
+                        }else{
+                            System.out.println("No se pudo registarr el paquete.");
+                        }
                         break;
                     case 3:
                         break;

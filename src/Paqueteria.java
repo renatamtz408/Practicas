@@ -1,12 +1,13 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Paqueteria {
     public ArrayList<paqueteEnvio> listapaquetes;
 
     public Paqueteria() {
-        this.listapaquetes = listapaquetes;
+        this.listapaquetes = new ArrayList<>();
     }
 
     public void registrarpaquetes(paqueteEnvio p){
@@ -19,8 +20,10 @@ public class Paqueteria {
         ){
             stmt.setString(1,p.getNombredestinatario());
             stmt.setDouble(2,p.getPesokg());
-            stmt.setString(3,p.getEstrategiaenvio());
+            stmt.setString(3,p.getTipo());
             stmt.setDouble(4,p.obtenerCosto());
+            int cambios=stmt.executeUpdate();
+            return cambios;
         }
     }
 }
