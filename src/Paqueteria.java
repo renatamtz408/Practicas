@@ -16,14 +16,13 @@ public class Paqueteria {
 
     public int save(paqueteEnvio p)throws Exception{
         try(Connection con=Conexion.getConexion();
-            PreparedStatement stmt= con.prepareStatement("insert into Paquete (destinatario,peso,estrategia,costo) values (?,?,?,?)");
+            PreparedStatement stmt= con.prepareStatement("insert into Paquetes (destinatario,peso,estrategia,costo) values (?,?,?,?)");
         ){
             stmt.setString(1,p.getNombredestinatario());
             stmt.setDouble(2,p.getPesokg());
             stmt.setString(3,p.getTipo());
             stmt.setDouble(4,p.obtenerCosto());
-            int cambios=stmt.executeUpdate();
-            return cambios;
+            return stmt.executeUpdate();
         }
     }
 }
