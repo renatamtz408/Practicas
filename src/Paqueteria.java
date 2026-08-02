@@ -94,5 +94,17 @@ public class Paqueteria {
         }
     }
 
+    public void imprimirReporte(){
+        double total=0;
+        for(paqueteEnvio p:listapaquetes){
+            double costo=p.obtenerCosto();
+            System.out.println("Destinatario: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
+                    "| Estrategia: "+p.getTipo()+" | Costo $"+costo);
+            total=+costo;
+            System.out.println("------------------------------------");
+        }
+        System.out.println("Total recaudado $"+total);
+    }
+
 
 }

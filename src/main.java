@@ -113,6 +113,8 @@ public class main {
                         paqueteria.contador();
                         break;
                     case 7:
+                        System.out.println("---REPORTE DEL DÍA---");
+                        paqueteria.imprimirReporte();
                         break;
                     case 8:
                         System.out.println("Hasta pronto...");
