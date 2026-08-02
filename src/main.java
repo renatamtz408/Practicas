@@ -80,7 +80,7 @@ public class main {
                         ArrayList<paqueteEnvio> listap = paqueteria.getAll();
                         for (paqueteEnvio p : listap){
                             System.out.println("id: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
-                                    "Kg | Estrategia: "+p.getEstrategiaenvio()+ "Costo $"+p.obtenerCosto());
+                                    "Kg | Estrategia: "+p.getEstrategiaenvio()+ "| Costo $"+p.obtenerCosto());
                         }
                         break;
                     case 4:

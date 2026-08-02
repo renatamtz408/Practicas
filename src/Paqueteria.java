@@ -29,9 +29,9 @@ public class Paqueteria {
     public ArrayList<paqueteEnvio> getAll()throws Exception{
         try(Connection con=Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Paquetes");
+            ResultSet rs= stmt.executeQuery();
         ){
             ArrayList<paqueteEnvio> lista=new ArrayList<>();
-            ResultSet rs= stmt.getGeneratedKeys();
             while(rs.next()){
                 int id=rs.getInt("id");
                 String nombre=rs.getString("destinatario");
