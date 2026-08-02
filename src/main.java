@@ -77,8 +77,11 @@ public class main {
                         break;
                     case 3:
                         System.out.println("---LISTA DE PAQUETES---");
-                        ArrayList<paqueteEnvio>lista = paqueteria.getAll();
-                        for ()
+                        ArrayList<paqueteEnvio> listap = paqueteria.getAll();
+                        for (paqueteEnvio p : listap.size()){
+                            System.out.println("id: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
+                                    "Kg | Estrategia: "+p.getEstrategiaenvio()+ "Costo $"+p.obtenerCosto());
+                        }
                         break;
                     case 4:
                         break;
