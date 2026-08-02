@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -76,6 +77,8 @@ public class main {
                         break;
                     case 3:
                         System.out.println("---LISTA DE PAQUETES---");
+                        ArrayList<paqueteEnvio>lista = paqueteria.getAll();
+                        for ()
                         break;
                     case 4:
                         break;
