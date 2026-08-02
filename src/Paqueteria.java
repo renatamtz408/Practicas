@@ -52,7 +52,8 @@ public class Paqueteria {
         ){
             while(rs.next()){
                 String estrategia=rs.getString("estrategia");
-                int cantidad=rs.getInt("")
+                int cantidad=rs.getInt("total");
+                System.out.println("Estrategia: "+estrategia+" | Total: "+cantidad);
             }
 
         }
