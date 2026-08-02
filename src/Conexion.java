@@ -1,14 +1,12 @@
-package modulos;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conexion {
-    public static String server="localhost";
-    public static String port="1433";
-    public static String db="PlataformaStreaming";
-    public static String user="Dearrollador";
-    public static String psw="1234";
+    private static String server="localhost";
+    private static String port="1433";
+    private static String db="PlataformaStreaming";
+    private static String user="Desarrollador";
+    private static String psw="1234";
 
     public static String getCadenaConexion(){
         return String.format("jdbc:sqlserver://%s:%s;" +
