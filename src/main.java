@@ -80,7 +80,7 @@ public class main {
                         ArrayList<paqueteEnvio> listap = paqueteria.getAll();
                         for (paqueteEnvio p : listap){
                             System.out.println("id: "+p.getId()+" |Destinatario: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
-                                    "Kg | Estrategia: "+p.getEstrategiaenvio()+ "| Costo $"+p.obtenerCosto());
+                                    "Kg | Estrategia: "+p.getTipo()+ "| Costo $"+p.obtenerCosto());
                         }
                         break;
                     case 4:
@@ -98,6 +98,15 @@ public class main {
                         }
                         break;
                     case 5:
+                        System.out.println("---ELIMINAR PAQUETE--- ");
+                        System.out.println("Ingrese el id del paquete: ");
+                        int ideliminar= sc.nextInt();
+                        int filascambiadas=paqueteria.delete(ideliminar);
+                        if(filascambiadas>0){
+                            System.out.println("Información actualizada.");
+                        }else{
+                            System.out.println("No se encontro un paquete con ese id.");
+                        }
                         break;
                     case 6:
                         break;

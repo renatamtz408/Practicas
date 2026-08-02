@@ -26,6 +26,15 @@ public class Paqueteria {
         }
     }
 
+    public int delete(int id)throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("delete from Paquetes where id=?");
+        ){
+            stmt.setInt(1,id);
+            return stmt.executeUpdate();
+        }
+    }
+
     public int update(int id,String destinatario)throws Exception{
         try(Connection con =Conexion.getConexion();
             PreparedStatement stmt= con.prepareStatement("update Paquetes set destinatario=? where id=?");
