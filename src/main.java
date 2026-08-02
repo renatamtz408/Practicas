@@ -78,7 +78,7 @@ public class main {
                     case 3:
                         System.out.println("---LISTA DE PAQUETES---");
                         ArrayList<paqueteEnvio> listap = paqueteria.getAll();
-                        for (paqueteEnvio p : listap.size()){
+                        for (paqueteEnvio p : listap){
                             System.out.println("id: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
                                     "Kg | Estrategia: "+p.getEstrategiaenvio()+ "Costo $"+p.obtenerCosto());
                         }
