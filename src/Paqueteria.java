@@ -47,7 +47,15 @@ public class Paqueteria {
 
     public void contador()throws Exception{
         try(Connection con=Conexion.getConexion();
-        PreparedStatement stmt= con.prepareStatement("select estrategia from Paquetes"))
+        PreparedStatement stmt= con.prepareStatement("select estrategia,count(id) as total from Paquetes group by estrategia");
+        ResultSet rs= stmt.executeQuery();
+        ){
+            while(rs.next()){
+                String estrategia=rs.getString("estrategia");
+                int cantidad=rs.getInt("")
+            }
+
+        }
     }
 
     public ArrayList<paqueteEnvio> getAll()throws Exception{
