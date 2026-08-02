@@ -45,6 +45,11 @@ public class Paqueteria {
         }
     }
 
+    public void contador()throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select estrategia from Paquetes"))
+    }
+
     public ArrayList<paqueteEnvio> getAll()throws Exception{
         try(Connection con=Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Paquetes");

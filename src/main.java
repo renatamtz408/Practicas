@@ -109,6 +109,7 @@ public class main {
                         }
                         break;
                     case 6:
+                        System.out.println("--- CONTADOR POR ETRATEGIA---");
                         break;
                     case 7:
                         break;
