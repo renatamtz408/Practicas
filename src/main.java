@@ -79,11 +79,23 @@ public class main {
                         System.out.println("---LISTA DE PAQUETES---");
                         ArrayList<paqueteEnvio> listap = paqueteria.getAll();
                         for (paqueteEnvio p : listap){
-                            System.out.println("id: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
+                            System.out.println("id: "+p.getId()+" |Destinatario: "+p.getNombredestinatario()+" | Peso: "+p.getPesokg()+
                                     "Kg | Estrategia: "+p.getEstrategiaenvio()+ "| Costo $"+p.obtenerCosto());
                         }
                         break;
                     case 4:
+                        System.out.println("---CAMBIO DE DESTINATARIO---");
+                        System.out.println("Ingrese el id del paquete: ");
+                        int id= sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Ingrese el nuevo destinatario: ");
+                        String nuevodest= sc.nextLine();
+                        int cambios2 = paqueteria.update(id,nuevodest);
+                        if(cambios2>0){
+                            System.out.println("Información actualizada.");
+                        }else{
+                            System.out.println("No se encontro un paquete con ese id.");
+                        }
                         break;
                     case 5:
                         break;

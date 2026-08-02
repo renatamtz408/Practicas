@@ -26,6 +26,16 @@ public class Paqueteria {
         }
     }
 
+    public int update(int id,String destinatario)throws Exception{
+        try(Connection con =Conexion.getConexion();
+            PreparedStatement stmt= con.prepareStatement("update Paquetes set destinatario=? where id=?");
+        ){
+            stmt.setString(1,destinatario);
+            stmt.setInt(2,id);
+            return stmt.executeUpdate();
+        }
+    }
+
     public ArrayList<paqueteEnvio> getAll()throws Exception{
         try(Connection con=Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Paquetes");
@@ -60,4 +70,6 @@ public class Paqueteria {
             return lista;
         }
     }
+
+
 }
