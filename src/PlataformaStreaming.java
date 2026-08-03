@@ -36,6 +36,15 @@ public class PlataformaStreaming {
         }
     }
 
+    public int delete(int id)throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("delete from Usuarios where id=?");
+        ){
+            stmt.setInt(1,id);
+            return stmt.executeUpdate();
+        }
+    }
+
     public static List<Usuario> getAll() throws Exception{
         try(Connection con= Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Usuarios");

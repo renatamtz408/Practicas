@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +15,9 @@ public class main {
                 System.out.println("2) Registrar usuario.");
                 System.out.println("3) Mostrar lista de usuarios");
                 System.out.println("4) Modificar correo");
+                System.out.println("5) Eliminar usuario");
+                System.out.println("6) Contador por tipo de plan");
+                System.out.println("7) Salir");
                 System.out.println("Seleccione una opcion del menú: ");
                 opc = sc.nextInt();
                 sc.nextLine();
@@ -36,7 +40,7 @@ public class main {
                         System.out.println("Seleccione el plan que desea contatar:");
                         int plan = sc.nextInt();
                         String tipo = "";
-                        int cambios3 = 0;
+                        int cambios3=0;
                         if (plan == 1) {
                             tipo = "Básico";
                             Usuario u = new Usuario(correo, meses, tipo, new PlanBasico());
@@ -73,7 +77,6 @@ public class main {
                         System.out.println("---MODIFICAR CORREO---");
                         System.out.println("Ingrese id del usuario:");
                         int id2=sc.nextInt();
-                        sc.nextLine();
                         System.out.println("Ingrese nuevo correo: ");
                         String nuevocorreo=sc.nextLine();
                         int cambios4= plataformaStreaming.update(id2,nuevocorreo);
@@ -83,7 +86,17 @@ public class main {
                             System.out.println("No se encontro el id.");
                         }
                         break;
-
+                    case 5:
+                        System.out.println("---ELIMINAR USUARIO---");
+                        System.out.println("Ingrese el id del usuario que desea eliminar: ");
+                        int id4= sc.nextInt();
+                        int cambios5=plataformaStreaming.delete(id4);
+                        if(cambios5>0){
+                            System.out.println("El usuario ha sido eliminado.");
+                        }else{
+                            System.out.println("No se encontró el id.");
+                        }
+                        break;
                     default:
                         System.out.println("Seleccione un opción del menu.");
                 }
@@ -93,6 +106,6 @@ public class main {
                 e.getMessage();
                 e.printStackTrace();
             }
-        } while (opc != 3);
+        } while (opc != 7);
     }
 }
