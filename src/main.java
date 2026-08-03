@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -61,6 +62,7 @@ public class main {
                         break;
                     case 3:
                         System.out.println("---LISTA DE USUARIOS---");
+                        ArrayList<Usuario>lista;
                     case 4:
                         System.out.println("---MODIFICAR CORREO---");
 

@@ -43,14 +43,19 @@ public class PlataformaStreaming {
                 double costo= rs.getDouble("costo");
 
                 if(plan.equals("Básico")){
-                    Usuario u=new Usuario(id,meses,correo,plan,new PlanBasico());
+                    u=new Usuario(id,meses,correo,plan,new PlanBasico());
                 } else if (plan.equals("Estandar")) {
-                    Usuario u=new Usuario(id,meses,correo,plan,new PlanEstandar());
+                    u=new Usuario(id,meses,correo,plan,new PlanEstandar());
                 }else if(plan.equals("Premium")){
-                    Usuario u=new Usuario(id,meses,correo,plan,new PlanPremium());
+                    u=new Usuario(id,meses,correo,plan,new PlanPremium());
+                }
+
+                if(u!=null){
+                    lista.add(u);
                 }
 
             }
+            return lista;
 
         }
     }
