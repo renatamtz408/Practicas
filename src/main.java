@@ -20,6 +20,37 @@ public class main {
                             "en la primera factura por habilitar acceso a contenido 4K Ultra HD y audio espacial.");
                     break;
                 case 2:
+                    System.out.println("---REGISTRO DE USUARIO---");
+                    System.out.println("Ingrese correo electronico:");
+                    String correo=sc.nextLine();
+                    System.out.println("Ingrese los meses de contrato:");
+                    int meses = sc.nextInt();
+                    System.out.println("1) Plan Básico");
+                    System.out.println("2) Plan Estandar");
+                    System.out.println("3) Plan Premium");
+                    System.out.println("Seleccione el plan que desea contatar:");
+                    int plan= sc.nextInt();
+                    sc.nextLine();
+                    String tipo="";
+                    if(plan==1){
+                        tipo="Básico";
+                        Usuario u = new Usuario(correo,meses,tipo,new PlanBasico());
+                        plataformaStreaming.registrarusuario(u);
+                        plataformaStreaming.save(u);
+                    }else if(plan==2){
+                        tipo="Estandar";
+                        Usuario u=new Usuario(correo,meses,tipo,new PlanEstandar());
+                        plataformaStreaming.save(u);
+                        plataformaStreaming.registrarusuario(u);
+                    } else if (plan==3){
+                        tipo="Premium";
+                        Usuario u =new Usuario(correo,meses,tipo,new PlanPremium());
+                        plataformaStreaming.save(u);
+                        plataformaStreaming.registrarusuario(u);
+                    }else{
+                        System.out.println("Opcción inválida.");
+                    }
+
             }
         } catch (Exception e) {
             System.out.println("Ingrese un dato válido.");
