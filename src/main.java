@@ -10,6 +10,8 @@ public class main {
                 System.out.println("      MENÚ      ");
                 System.out.println("1) Consultar planes.");
                 System.out.println("2) Registrar usuario.");
+                System.out.println("3) Mostrar lista de usuarios");
+                System.out.println("4) Modificar correo");
                 System.out.println("Seleccione una opcion del menú: ");
                 opc = sc.nextInt();
                 sc.nextLine();
@@ -57,6 +59,11 @@ public class main {
                             System.out.println("No se pudo registrar el usuario.");
                         }
                         break;
+                    case 3:
+                        System.out.println("---LISTA DE USUARIOS---");
+                    case 4:
+                        System.out.println("---MODIFICAR CORREO---");
+
                     default:
                         System.out.println("Seleccione un opción del menu.");
                 }
