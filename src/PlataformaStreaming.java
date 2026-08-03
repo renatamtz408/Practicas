@@ -32,8 +32,8 @@ public class PlataformaStreaming {
         ){
             stmt.setString(1,correo);
             stmt.setInt(2,id);
+            return stmt.executeUpdate();
         }
-        return
     }
 
     public static List<Usuario> getAll() throws Exception{

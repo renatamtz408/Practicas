@@ -76,7 +76,13 @@ public class main {
                         sc.nextLine();
                         System.out.println("Ingrese nuevo correo: ");
                         String nuevocorreo=sc.nextLine();
-                        plataformaStreaming.update(id2,nuevocorreo);
+                        int cambios4= plataformaStreaming.update(id2,nuevocorreo);
+                        if(cambios4>0){
+                            System.out.println("Información Actualizada.");
+                        }else{
+                            System.out.println("No se encontro el id.");
+                        }
+                        break;
 
                     default:
                         System.out.println("Seleccione un opción del menu.");
