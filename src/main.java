@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class main {
@@ -62,7 +63,12 @@ public class main {
                         break;
                     case 3:
                         System.out.println("---LISTA DE USUARIOS---");
-                        ArrayList<Usuario>lista;
+                        List<Usuario> lista = PlataformaStreaming.getAll();
+                        for (Usuario u:lista){
+                            System.out.println("id) "+u.getId()+" | Correo: "+u.getCorreoElectronico()+"| Plan: "
+                            +u.getPlan()+" | Meses Activo: "+u.getMesesActivo()+" | Costo: "+u.obtenerTotalAPagar());
+                        }
+                        break;
                     case 4:
                         System.out.println("---MODIFICAR CORREO---");
 

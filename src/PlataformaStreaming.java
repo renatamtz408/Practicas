@@ -27,7 +27,7 @@ public class PlataformaStreaming {
         }
     }
 
-    public static List<Usuario> getAll()throws Exception{
+    public static List<Usuario> getAll() throws Exception{
         try(Connection con= Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Usuarios");
             ResultSet rs= stmt.executeQuery();
