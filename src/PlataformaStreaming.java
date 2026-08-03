@@ -48,8 +48,13 @@ public class PlataformaStreaming {
     public void contador()throws Exception{
         try(Connection con=Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select plan_suscripcion, count(id) as total from Usuarios group by plan_suscripcion");
+        ResultSet rs= stmt.executeQuery();
         ){
-
+            while (rs.next()){
+                String plan=rs.getString("plan_suscripcion");
+                int cantidad=rs.getInt("total");
+                System.out.println("Plan :"+plan+" | Total: "+cantidad);
+            }
         }
     }
 

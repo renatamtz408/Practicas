@@ -99,6 +99,11 @@ public class main {
                         break;
                     case 6:
                         System.out.println("---CONTADOR POR PLAN---");
+                        plataformaStreaming.contador();
+                        break;
+                    case 7:
+                        System.out.println("Hasta pronto...");
+                        break;
                     default:
                         System.out.println("Seleccione un opción del menu.");
                 }
