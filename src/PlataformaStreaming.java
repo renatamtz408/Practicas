@@ -33,9 +33,22 @@ public class PlataformaStreaming {
             ResultSet rs= stmt.executeQuery();
         ){
             List<Usuario> lista=new ArrayList<>();
+            Usuario u= null;
+
             while(rs.next()){
-                lista.add(new Usuario(rs.getInt("id")rs.getString("correo")rs.getString("plan_suscripcion")
-                rs.getDouble("costo")));
+                int id=rs.getInt("id");
+                String correo=rs.getString("correo");
+                int meses=rs.getInt("meses");
+                String plan=rs.getString("plan_suscripcion");
+                double costo= rs.getDouble("costo");
+
+                if(plan.equals("Básico")){
+                    Usuario u=new Usuario(id,correo,meses,plan,new PlanBasico());
+                } else if (plan.equals("Estandar")) {
+                    Usuario u=new Usuario(id,correo,meses,plan,new PlanEstandar());
+                }else if(plan.equals("Premium")){
+                    Usuario u=new Usuario(id,correo,meses,plan,new PlanPremium());
+                }
 
             }
 
