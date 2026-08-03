@@ -71,6 +71,12 @@ public class main {
                         break;
                     case 4:
                         System.out.println("---MODIFICAR CORREO---");
+                        System.out.println("Ingrese id del usuario:");
+                        int id2=sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Ingrese nuevo correo: ");
+                        String nuevocorreo=sc.nextLine();
+                        plataformaStreaming.update(id2,nuevocorreo);
 
                     default:
                         System.out.println("Seleccione un opción del menu.");

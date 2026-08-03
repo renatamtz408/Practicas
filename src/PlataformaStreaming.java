@@ -26,6 +26,15 @@ public class PlataformaStreaming {
             return stmt.executeUpdate();
         }
     }
+    public int update(int id,String correo)throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("update Usuarios set correo=? where id=?");
+        ){
+            stmt.setString(1,correo);
+            stmt.setInt(2,id);
+        }
+        return
+    }
 
     public static List<Usuario> getAll() throws Exception{
         try(Connection con= Conexion.getConexion();
