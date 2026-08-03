@@ -45,6 +45,14 @@ public class PlataformaStreaming {
         }
     }
 
+    public void contador()throws Exception{
+        try(Connection con=Conexion.getConexion();
+        PreparedStatement stmt= con.prepareStatement("select plan_suscripcion, count(id) as total from Usuarios group by plan_suscripcion");
+        ){
+
+        }
+    }
+
     public static List<Usuario> getAll() throws Exception{
         try(Connection con= Conexion.getConexion();
         PreparedStatement stmt= con.prepareStatement("select * from Usuarios");

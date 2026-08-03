@@ -97,6 +97,8 @@ public class main {
                             System.out.println("No se encontró el id.");
                         }
                         break;
+                    case 6:
+                        System.out.println("---CONTADOR POR PLAN---");
                     default:
                         System.out.println("Seleccione un opción del menu.");
                 }
